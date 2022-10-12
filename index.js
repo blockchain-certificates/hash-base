@@ -1,6 +1,6 @@
 'use strict'
 var Buffer = require('safe-buffer').Buffer
-var Transform = require('readable-stream').Transform
+var ReadableStream = require('readable-stream')
 var inherits = require('inherits')
 
 function throwIfNotStringOrBuffer (val, prefix) {
@@ -10,7 +10,7 @@ function throwIfNotStringOrBuffer (val, prefix) {
 }
 
 function HashBase (blockSize) {
-  Transform.call(this)
+  ReadableStream.Stream.Transform.call(this)
 
   this._block = Buffer.allocUnsafe(blockSize)
   this._blockSize = blockSize
@@ -20,7 +20,7 @@ function HashBase (blockSize) {
   this._finalized = false
 }
 
-inherits(HashBase, Transform)
+inherits(HashBase, ReadableStream.Stream.Transform)
 
 HashBase.prototype._transform = function (chunk, encoding, callback) {
   var error = null

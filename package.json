@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "inherits": "^2.0.4",
-    "readable-stream": "^3.6.0",
+    "readable-stream": "npm:vite-compatible-readable-stream@^3.6.1",
     "safe-buffer": "^5.2.0"
   },
   "devDependencies": {
